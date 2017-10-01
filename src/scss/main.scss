@@ -1,0 +1,50 @@
+html, 
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Rubik', Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.center-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80%; 
+
+  .logo {
+    margin-bottom: 20px;
+    width: 60px;
+  }
+  
+  .desc {
+    margin: 0 0 30px;
+    line-height: 20px;
+    font-size: 18px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+
+    p {
+      margin: 0;
+      padding: 10px 2px;
+    }
+    
+    span {
+      font-size: 14px;
+      font-style: italic;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+  }
+
+  .tools {
+    color: tan;
+  }
+}
