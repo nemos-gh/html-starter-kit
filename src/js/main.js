@@ -1,7 +1,8 @@
+import { message } from './message'
 let container = document.querySelector('.js-content');
 
 sampleText();
 
 function sampleText() {
-    container.textContent = 'JS generated text...';
+    container.textContent = message;
 }

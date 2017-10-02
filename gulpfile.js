@@ -3,9 +3,9 @@
 var gulp = require("gulp")
 var pug = require("gulp-pug")
 var sass = require("gulp-sass")
-var babel = require("gulp-babel")
 var sourcemaps = require("gulp-sourcemaps")
 var imagemin = require("gulp-imagemin")
+var webpack = require("webpack-stream")
 var browserSync = require("browser-sync").create()
 
 
@@ -45,7 +45,7 @@ const fontsPaths = {
 
 // Gulp server + watch
 
-gulp.task("serve", ["pug", "sass", "scripts"], () => {
+gulp.task("serve", ["pug", "sass", "webpack"], () => {
   browserSync.init({
     server: {
       baseDir: dirs.dest
@@ -53,7 +53,7 @@ gulp.task("serve", ["pug", "sass", "scripts"], () => {
   })
   gulp.watch(pugPaths.watch, ["pug"])
   gulp.watch(sassPaths.src, ["sass"])
-  gulp.watch(jsPaths.src, ["scripts"])
+  gulp.watch(jsPaths.src, ["webpack"])
 })
 
 
@@ -79,12 +79,10 @@ gulp.task("sass", () =>
     .pipe(browserSync.stream())
 )
 
-gulp.task("scripts", () => 
-  gulp.src(jsPaths.src)
-    .pipe(babel({
-      presets: ["env"]
-    }))
-    .pipe(gulp.dest(jsPaths.dest))
+gulp.task("webpack", () => 
+  gulp.src("./src/js/main.js")
+    .pipe(webpack(require("./webpack.config.js")))
+    .pipe(gulp.dest("./dist/js"))
     .pipe(browserSync.stream())
 )
 
