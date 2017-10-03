@@ -18,7 +18,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80%; 
+  height: 90%; 
 
   .logo {
     margin-bottom: 20px;
@@ -46,5 +46,9 @@ h1 {
 
   .tools {
     color: tan;
+    text-align: center;
+
   }
+  
+  .js-message { color: lightslategrey; }
 }

@@ -1,8 +1,4 @@
 import { message } from './message'
-let container = document.querySelector('.js-content');
+let msg = document.querySelector('.js-message');
 
-sampleText();
-
-function sampleText() {
-    container.textContent = message;
-}
+msg.textContent = message;

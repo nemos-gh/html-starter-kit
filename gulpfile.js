@@ -45,7 +45,7 @@ const fontsPaths = {
 
 // Gulp server + watch
 
-gulp.task("serve", ["pug", "sass", "webpack"], () => {
+gulp.task("default", ["pug", "sass", "webpack"], () => {
   browserSync.init({
     server: {
       baseDir: dirs.dest
@@ -72,9 +72,9 @@ gulp.task("sass", () =>
   gulp.src(sassPaths.src)
     .pipe(sourcemaps.init())
     .pipe(sass({
-      outputStyle: 'compressed'
+      outputStyle: "compressed"
     }))
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write("./"))
     .pipe(gulp.dest(sassPaths.dest))
     .pipe(browserSync.stream())
 )

@@ -1,3 +1,3 @@
 module.exports = {
-  message: "JS webpack included"
+  message: "JS talking: Webpack included"
 }
