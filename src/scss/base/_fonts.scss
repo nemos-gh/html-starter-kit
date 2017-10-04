@@ -1,0 +1,7 @@
+/*===============================================*/
+/*	Fonts (fontFace in _mixins.scss)  */
+/*===============================================*/
+
+@include fontFace('Rubik', '../fonts/Rubik-Regular');
+@include fontFace('Rubik', '../fonts/Rubik-Italic', 400, italic);
+@include fontFace('Rubik', '../fonts/Rubik-Bold', bold);

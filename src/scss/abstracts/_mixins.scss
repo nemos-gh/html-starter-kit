@@ -1,0 +1,110 @@
+//===============================================
+//  Mixins
+//===============================================
+
+// font face
+
+@function fontUrlFormat($fontPath, $fontData) {
+  $fontUrl: url( $fontPath + '.#{nth($fontData, 1)}' );
+
+  @if ( length($fontData) > 1 ) {
+    @return $fontUrl format( nth($fontData, 2) );
+  } @else {
+    @return $fontUrl;
+  }
+}
+
+@mixin fontFace($name, $path, $weight: 400, $style: normal) {
+  $exts: ('eot')
+         ('eot?#iefix', 'embedded-opentype')
+         ('woff', 'woff')
+         ('woff2', ' woff2')
+         ('ttf', 'truetype')
+         ('svg#', 'svg');
+  $sources: ();
+
+  @each $ext in $exts {
+    $sources: append( $sources, fontUrlFormat($path, $ext), 'comma' );
+  }
+
+  @font-face {
+    font-family: quote($name);
+    src: $sources;
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+// opacity
+
+@mixin opacity($arg) {
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=$arg)";
+      filter: alpha(opacity=$arg);
+  -khtml-opacity: $arg;
+    -moz-opacity: $arg;
+         opacity: $arg;
+}
+
+// transitions
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+     -moz-transition: $args;
+      -ms-transition: $args;
+       -o-transition: $args;
+          transition: $args;
+}
+
+// transform
+
+@mixin transform($args) {
+  -webkit-transform: $args;
+     -moz-transform: $args;
+      -ms-transform: $args;
+       -o-transform: $args;
+          transform: $args;
+}
+
+// center vertically and/or horizontally an absolute positioned element
+
+@mixin center($xy:xy) {
+  @if $xy == xy {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    @include transform(translateX(-50%) translateY(-50%));
+  }
+  @else if $xy == x {
+    left: 50%;
+    right: auto;
+    @include transform(translateX(-50%));
+  }
+  @else if $xy == y {
+    top: 50%;
+    bottom: auto;
+    @include transform(translateY(-50%));
+  }
+}
+
+// antialiasing mode font rendering
+
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// input field placeholder
+
+@mixin placeholder {
+  &::-webkit-input-placeholder { @content };
+  &:-ms-input-placeholder { @content };
+  &:-moz-placeholder { @content };
+  &::-moz-placeholder { @content };
+}
+
+// targeting only Firefox 
+
+@mixin firefox {
+  @-moz-document url-prefix() { @content }
+}

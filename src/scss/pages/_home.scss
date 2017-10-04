@@ -1,0 +1,43 @@
+/*===============================================*/
+/*	Home page  */
+/*===============================================*/
+
+.center-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90%; 
+
+  .logo {
+    margin-bottom: 20px;
+    width: 60px;
+  }
+  
+  .desc {
+    margin: 0 0 30px;
+    line-height: 20px;
+    font-size: 18px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+
+    p {
+      margin: 0;
+      padding: 10px 2px;
+    }
+    
+    span {
+      font-size: 14px;
+      font-style: italic;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+  }
+
+  .tools {
+    color: tan;
+    text-align: center;
+
+  }
+  
+  .js-message { color: lightslategrey; }
+}
