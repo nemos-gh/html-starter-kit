@@ -2,6 +2,6 @@
 /*	Fonts (fontFace in _mixins.scss)  */
 /*===============================================*/
 
-@include fontFace('Rubik', '../fonts/Rubik-Regular');
-@include fontFace('Rubik', '../fonts/Rubik-Italic', 400, italic);
-@include fontFace('Rubik', '../fonts/Rubik-Bold', bold);
+@include fontFace('Mukta', '../fonts/Mukta-Regular');
+@include fontFace('Mukta', '../fonts/Mukta-Light', 300);
+@include fontFace('Mukta', '../fonts/Mukta-Bold', bold);
