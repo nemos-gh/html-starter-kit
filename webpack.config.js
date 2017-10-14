@@ -1,11 +1,13 @@
 const path = require("path")
 const webpack = require("webpack")
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 module.exports = {
-  entry: "./src/js/main.js",
+  entry: ["./src/js/main.js", "./src/scss/main.scss"],
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "dist/js")
+    path: path.resolve(__dirname, "dist/js"),
+    publicPath: './dist'
   },
   module: {
     rules: [
@@ -18,10 +20,32 @@ module.exports = {
             presets: ['env']
           }
         }
+      },
+      {
+        test: /\.(scss|sass)$/,
+        use: ExtractTextPlugin.extract({
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                url: false,
+                minimize: true,
+                sourceMap: true
+              }
+            },
+            "sass-loader"
+          ]
+        })
       }
     ]
   },
+  devtool: 'source-map',
   plugins: [
-    new webpack.optimize.UglifyJsPlugin()
+    new ExtractTextPlugin({
+      filename: "../css/[name].css"
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true
+    }),
   ]
 }

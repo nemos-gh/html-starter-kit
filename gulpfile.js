@@ -2,8 +2,6 @@
 
 var gulp = require("gulp")
 var pug = require("gulp-pug")
-var sass = require("gulp-sass")
-var sourcemaps = require("gulp-sourcemaps")
 var imagemin = require("gulp-imagemin")
 var webpack = require("webpack-stream")
 var browserSync = require("browser-sync").create()
@@ -22,14 +20,11 @@ const pugPaths = {
   "watch": `${dirs.src}/views/**/*.pug`
 }
 
-const sassPaths = {
-  "src": `${dirs.src}/scss/**/*.scss`,
-  "dest": `${dirs.dest}/css`
-}
-
-const jsPaths = {
+const webpackPaths = {
   "src": `${dirs.src}/js/**/*.js`,
-  "dest": `${dirs.dest}/js`
+  "dest": `${dirs.dest}/js`,
+  "mainFile": `${dirs.src}/js/main.js`,
+  "sass": `${dirs.src}/scss/**/*.scss`
 }
 
 const imagesPaths = {
@@ -45,15 +40,15 @@ const fontsPaths = {
 
 // Gulp server + watch
 
-gulp.task("default", ["pug", "sass", "webpack"], () => {
+gulp.task("default", ["pug", "webpack"], () => {
   browserSync.init({
     server: {
       baseDir: dirs.dest
     },
   })
   gulp.watch(pugPaths.watch, ["pug"])
-  gulp.watch(sassPaths.src, ["sass"])
-  gulp.watch(jsPaths.src, ["webpack"])
+  gulp.watch(webpackPaths.sass, ["webpack"])
+  gulp.watch(webpackPaths.src, ["webpack"])
 })
 
 
@@ -68,21 +63,10 @@ gulp.task("pug", () =>
     .pipe(browserSync.stream())
 )
 
-gulp.task("sass", () => 
-  gulp.src(sassPaths.src)
-    .pipe(sourcemaps.init())
-    .pipe(sass({
-      outputStyle: "compressed"
-    }))
-    .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest(sassPaths.dest))
-    .pipe(browserSync.stream())
-)
-
 gulp.task("webpack", () => 
-  gulp.src("./src/js/main.js")
+  gulp.src(webpackPaths.mainFile)
     .pipe(webpack(require("./webpack.config.js")))
-    .pipe(gulp.dest("./dist/js"))
+    .pipe(gulp.dest(webpackPaths.dest))
     .pipe(browserSync.stream())
 )
 
@@ -96,3 +80,5 @@ gulp.task("fonts", () =>
   gulp.src(fontsPaths.src)
     .pipe(gulp.dest(fontsPaths.dest))
 )
+
+gulp.task("assets", ["imagemin", "fonts"])
