@@ -1,10 +1,10 @@
 // Gulp requirements
 
-var gulp = require("gulp")
-var pug = require("gulp-pug")
-var imagemin = require("gulp-imagemin")
-var webpack = require("webpack-stream")
-var browserSync = require("browser-sync").create()
+const gulp = require("gulp")
+const pug = require("gulp-pug")
+const imagemin = require("gulp-imagemin")
+const webpack = require("webpack-stream")
+const browserSync = require("browser-sync").create()
 
 
 // Paths config 
@@ -20,7 +20,7 @@ const pugPaths = {
   "watch": `${dirs.src}/views/**/*.pug`
 }
 
-const webpackPaths = {
+const wbpPaths = {
   "src": `${dirs.src}/js/**/*.js`,
   "dest": `${dirs.dest}/js`,
   "mainFile": `${dirs.src}/js/main.js`,
@@ -47,8 +47,9 @@ gulp.task("default", ["pug", "webpack"], () => {
     },
   })
   gulp.watch(pugPaths.watch, ["pug"])
-  gulp.watch(webpackPaths.sass, ["webpack"])
-  gulp.watch(webpackPaths.src, ["webpack"])
+  gulp.watch([
+    wbpPaths.src, 
+    wbpPaths.sass], ["webpack"])
 })
 
 
@@ -64,9 +65,9 @@ gulp.task("pug", () =>
 )
 
 gulp.task("webpack", () => 
-  gulp.src(webpackPaths.mainFile)
+  gulp.src(wbpPaths.mainFile)
     .pipe(webpack(require("./webpack.config.js")))
-    .pipe(gulp.dest(webpackPaths.dest))
+    .pipe(gulp.dest(wbpPaths.dest))
     .pipe(browserSync.stream())
 )
 
