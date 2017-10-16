@@ -35,36 +35,6 @@
   }
 }
 
-// opacity
-
-@mixin opacity($arg) {
-  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=$arg)";
-      filter: alpha(opacity=$arg);
-  -khtml-opacity: $arg;
-    -moz-opacity: $arg;
-         opacity: $arg;
-}
-
-// transitions
-
-@mixin transition($args...) {
-  -webkit-transition: $args;
-     -moz-transition: $args;
-      -ms-transition: $args;
-       -o-transition: $args;
-          transition: $args;
-}
-
-// transform
-
-@mixin transform($args) {
-  -webkit-transform: $args;
-     -moz-transform: $args;
-      -ms-transform: $args;
-       -o-transform: $args;
-          transform: $args;
-}
-
 // center vertically and/or horizontally an absolute positioned element
 
 @mixin center($xy:xy) {
@@ -92,15 +62,6 @@
 @mixin font-smoothing {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-// input field placeholder
-
-@mixin placeholder {
-  &::-webkit-input-placeholder { @content };
-  &:-ms-input-placeholder { @content };
-  &:-moz-placeholder { @content };
-  &::-moz-placeholder { @content };
 }
 
 // targeting only Firefox 

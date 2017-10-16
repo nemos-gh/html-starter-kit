@@ -35,6 +35,7 @@ module.exports = {
                 sourceMap: true
               }
             },
+            "postcss-loader",
             "sass-loader"
           ]
         })
@@ -43,9 +44,9 @@ module.exports = {
   },
   devtool: "source-map",
   plugins: [
+    extractStyles,
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true
     }),
-    extractStyles
   ]
 }
