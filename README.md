@@ -5,7 +5,7 @@ Build System for developing Html templates using Pug, Scss and Babel.
 
 ## What's Included 
 
-Gulp tasks: Webpack, Browser-Sync, Pug, Imagemin, copy fonts
+Gulp tasks: Webpack, Browser-Sync, Pug, Imagemin, copy fonts  
 Webpack: Babel, Scss/Sass, Autoprefixer (_as PostCSS plugin_)
 
 
