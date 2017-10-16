@@ -28,12 +28,12 @@ const wbpPaths = {
 }
 
 const imagesPaths = {
-  "src": `${dirs.src}/images/*.+(png|jpg|gif|svg)`,
+  "src": `${dirs.src}/assets/images/*.+(png|jpg|gif|svg)`,
   "dest": `${dirs.dest}/images`
 }
 
 const fontsPaths = {
-  "src": `${dirs.src}/fonts/**/*`,
+  "src": `${dirs.src}/assets/fonts/**/*`,
   "dest": `${dirs.dest}/fonts`
 }
 

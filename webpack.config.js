@@ -15,13 +15,14 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["env"]
-          }
-        }
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: { presets: ["env"] }
+          },
+          "eslint-loader"
+        ]
       },
       {
         test: /\.(scss|sass)$/,
