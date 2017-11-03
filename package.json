@@ -4,7 +4,7 @@
   "main": "main.js",
   "license": "MIT",
   "scripts": {
-    "dev": "gulp"
+    "serve": "gulp"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",

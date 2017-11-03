@@ -13,7 +13,7 @@ Webpack: Babel, Scss/Sass, Autoprefixer (_as PostCSS plugin_)
 
 1. **yarn** (or **_npm i_**) - install dependencies
 2. **yarn gulp assets** - copy fonts and images to ./dist
-3. **yarn gulp** (or **_yarn run dev_**) - serve
+3. **yarn gulp** (or **_yarn serve_**) - starts local server
 
 
 ## Usage 
