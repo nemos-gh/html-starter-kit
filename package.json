@@ -7,13 +7,12 @@
     "serve": "gulp"
   },
   "devDependencies": {
-    "autoprefixer": "^7.1.5",
+    "autoprefixer": "^7.1.6",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "browser-sync": "^2.18.13",
-    "css-loader": "^0.28.7",
     "eslint": "^4.9.0",
     "eslint-loader": "^1.9.0",
     "gulp": "^3.9.1",
@@ -22,10 +21,13 @@
     "gulp-pug": "^3.3.0",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.1",
-    "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.8",
-    "sass-loader": "^6.0.6",
     "uglifyjs-webpack-plugin": "^1.0.0-beta.3",
     "webpack-stream": "^4.0.0"
+  },
+  "dependencies": {
+    "bootstrap": "4.0.0-beta.2",
+    "jquery": "^3.2.1",
+    "popper.js": "^1.12.6"
   }
 }
