@@ -7,7 +7,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90%; 
+  height: 85%; 
+  text-align: center;
+
+  h1 { margin-bottom: 30px; }
 
   .logo {
     margin-bottom: 20px;
@@ -16,17 +19,18 @@
   
   .desc {
     margin: 0 0 30px;
-    padding: 15px 25px;
-    border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
+    padding: 25px 25px;
+    width: 100%;
+    background-color: tan; 
     
+
     p {
       margin: 0;
-      font-size: 20px;
+      font-size: 18px;
     }
     
     span {
-      font-size: 14px;
+      font-size: 13px;
       font-style: italic;
       font-family: Georgia, 'Times New Roman', Times, serif;
     }
@@ -34,9 +38,15 @@
 
   .tools {
     color: tan;
-    text-align: center;
+    font-size: 14px;
 
+    @include mq(sm) { font-size: 16px; }
   }
   
-  .js-message { color: lightslategrey; }
+  .js-message { 
+    color: lightslategrey; 
+    font-size: 14px;
+
+    @include mq(sm) { font-size: 16px; }
+  }
 }
