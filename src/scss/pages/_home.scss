@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 85%; 
+  height: 90%; 
   text-align: center;
 
   h1 { margin-bottom: 30px; }
@@ -21,7 +21,7 @@
     margin: 0 0 30px;
     padding: 25px 25px;
     width: 100%;
-    background-color: tan; 
+    background-color: gold; 
     
 
     p {
@@ -44,7 +44,7 @@
   }
   
   .js-message { 
-    color: lightslategrey; 
+    color: lightslategray; 
     font-size: 14px;
 
     @include mq(sm) { font-size: 16px; }
