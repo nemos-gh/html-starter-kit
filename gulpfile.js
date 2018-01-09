@@ -84,9 +84,15 @@ gulp.task("sass", () => {
 
 gulp.task("webpack", () => 
   gulp.src(wbpPaths.mainFile)
-    .pipe(webpack(require("./webpack.config.js")))
+    .pipe(webpack(require("./webpack.dev.js")))
     .pipe(gulp.dest(wbpPaths.dest))
     .pipe(browserSync.stream())
+)
+
+gulp.task("build", () => 
+  gulp.src(wbpPaths.mainFile)
+    .pipe(webpack(require("./webpack.prod.js")))
+    .pipe(gulp.dest(wbpPaths.dest))
 )
 
 gulp.task("imagemin", () => 

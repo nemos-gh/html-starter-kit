@@ -1,5 +1,5 @@
-const path = require("path")
-const webpack = require("webpack")
+const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
   entry: ["./src/js/main"],
@@ -23,11 +23,7 @@ module.exports = {
       }
     ]
   },
-  devtool: "source-map",
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true
-    }),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",

@@ -4,7 +4,8 @@
   "main": "main.js",
   "license": "MIT",
   "scripts": {
-    "serve": "gulp"
+    "serve": "gulp",
+    "build": "gulp build"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.6",
@@ -23,6 +24,7 @@
     "gulp-sourcemaps": "^2.6.1",
     "postcss-loader": "^2.0.8",
     "uglifyjs-webpack-plugin": "^1.0.0-beta.3",
+    "webpack-merge": "^4.1.1",
     "webpack-stream": "^4.0.0"
   },
   "dependencies": {
