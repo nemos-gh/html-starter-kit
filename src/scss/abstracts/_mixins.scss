@@ -28,7 +28,7 @@
   }
 
   @font-face {
-    font-family: quote($name), Arial, Helvetica, sans-serif;
+    font-family: quote($name);
     src: $sources;
     font-weight: $weight;
     font-style: $style;
